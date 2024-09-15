@@ -1,0 +1,765 @@
+---
+import TechStack from './TechStack.astro';
+---
+
+<section id="about" class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span id="typed-text"></span>
+      <span class="cursor">&nbsp;</span>
+    </h1>
+    <button class="cta-button" id="toggle-button">
+      Who Am I? 
+    </button>
+  </div>
+  <div id="additional-content" class="additional-content">
+    <TechStack />
+    <div class="about-sections">
+      <div class="about-section background">
+        <h2>Background</h2>
+        <p>
+          I hold a degree in Computer Information Systems and certifications in UNIX, C#, Full-Stack, and Mobile App Development. I’m passionate about technology, whether I’m bringing ideas to life with my 3D printer, programming IoT devices, or 
+          tinkering with Raspberry Pi projects. Customizing keyboards is another creative outlet, where I get to merge my love for programming with hands-on design and building. 
+        </p>
+      </div>
+      <div class="about-section time">
+        <h2>Local Time</h2>
+        <p id="local-time"></p>
+      </div>
+
+      <div class="about-section MiniGame">
+      <h2>Mini Game</h2>
+        <canvas id="pong" width="400" height="300"></canvas>
+          <div class="game-controls">
+            <button id="startButton" class="game-button">Start Game</button>
+            <button id="stopButton" class="game-button">Stop Game</button>
+            <button id="resetButton" class="game-button">Reset Game</button>
+          </div>
+          <p id="winner"></p>
+      </div>
+
+      <div class="about-section hobbies">
+        <h2>Skills</h2>
+        <img src="/images/typing_01.webp" />
+        <p> I'm a full-stack developer with experience in JavaScript, React, Astro, ASP.NET Core (C#) and Firebase but I love learning new platforms and am very adapable to new envirnoments. I love building advanced, interactive UI elements with animations. 
+          Keeping up with the latest trends and continuously learning new concepts is something I enjoy and prioritize.</p>
+      </div>
+      <div class="about-section skills">
+        <h2>Get to Know Me...</h2>
+        <img src="/images/pokemon-nintendo.gif" />
+        <p>I’m passionate about exploring new tech, curating unique collections like cards and all sorts of media treasures, and finding 
+          inspiration in unexpected places. I also love game nights with friends and tackling creative challenges. I’m a social, hands-on person who loves bringing ideas to life.
+        </p>
+      </div>
+      <div class="about-section gallery">
+        <h2>Photo Gallery</h2>
+        <div class="photo-gallery">
+          <img src="/images/itsme_lol.webp" alt="Project Screenshot 1" class="gallery-img" />
+          <img src="/images/profilepciture_comicstyle.png" alt="Project Screenshot 2" class="gallery-img" />
+          <img src="/images/profilepicture_jojos.png" alt="Project Screenshot 3" class="gallery-img" />
+        </div>
+      </div>
+   
+    </div>    
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap');
+
+
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    background: url('/images/blackwaves.webp') no-repeat center center/cover;
+    text-align: center;
+    color: #fff;
+    transition: min-height 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .hero-section.expanded {
+    min-height: 100vh;
+  }
+  
+  .hero-content {
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .cursor {
+    border-right: 0.15em solid #ff004d;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #50ce85; }
+  }
+  
+  .cta-button {
+  background: linear-gradient(135deg, #757575 0%, #eefafa 100%);
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 2.5rem; /* Increased font size */
+  font-weight: bold;
+  font-family: 'Zen Tokyo Zoo', cursive;
+  border-radius: 5px;
+  cursor: url('/images/pointer.svg'), auto;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 5px rgba(248, 248, 248, 0.7), 0 0 10px rgba(3, 101, 146, 0.7);
+  box-shadow: 0 0 10px rgba(195, 8, 241, 0.5), 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #e9e9e9 0%, #e7f3ff 100%);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(224, 224, 224, 0.7), 0 0 30px rgba(248, 248, 248, 0.7);
+}
+
+.cta-button:active {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  transform: scale(1);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 244, 85, 0.973);
+}
+
+  .additional-content {
+    display: none;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .additional-content.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.about-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.about-section {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-section h2 {
+  font-size: 3rem;
+  margin-bottom: 0.2rem;
+  color: #ffffff;
+  font-family: 'VT323', monospace;
+  text-shadow: 0 0 5px #5a5a5a, 0 0 10px #5a5a5a, 0 0 20px #5a5a5a, 0 0 40px #5a5a5a;
+}
+
+.about-section p {
+  font-size: 1.25rem;
+  color: #f0f0f0;
+  font-family: 'VT323', monospace;
+  line-height: 1.75;
+  text-shadow: 0 0 5px #5299c2, 0 0 10px #5299c2, 0 0 20px #5299c2, 0 0 40px #5299c2;
+}
+
+.background {
+  background-image: url('/images/cityvibes_back.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.hobbies {
+  background-image: url('/images/cityvibes_back.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.skills {
+  background-image: url('/images/cityvibes_back.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.about-section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+.gallery {
+  background: linear-gradient(135deg, #000000 0%, #d1c3c3 100%);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.time {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 350px;
+  width: 100%;
+  height: 650px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  color: #00ff99;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+.time:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 1), inset 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+.time h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00ff99;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.7), 0 0 20px rgba(0, 255, 153, 0.5);
+}
+
+.time p {
+  font-size: 2.5rem;
+  color: #00ff99;
+  text-shadow: 0 0 10px rgba(0, 255, 153, 0.7), 0 0 20px rgba(0, 255, 153, 0.5);
+  letter-spacing: 0.1rem;
+}
+
+.time::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1), transparent);
+  transform: translate(-50%, -50%);
+  animation: pulse 3s infinite;
+}
+
+.MiniGame {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 500px;
+      max-height: 800px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Press Start 2P', cursive;
+      color: #00ff99;
+      border: 2px solid rgba(0, 255, 255, 0.5);
+    }
+
+    #pong {
+      border: 4px solid white;
+      background-color: black;
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      cursor: crosshair;
+    }
+
+    .game-controls {
+      margin-top: 10px;
+    }
+
+    .game-button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background: linear-gradient(135deg, #ff0057, #ff9500);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-family: 'Press Start 2P', cursive;
+      text-shadow: 0 0 5px rgba(0, 225, 255, 0.7), 0 0 10px rgba(3, 101, 146, 0.7);
+      box-shadow: 0 0 10px rgba(255, 0, 85, 0.5), 0 0 20px rgba(255, 149, 0, 0.5);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .game-button:hover {
+      background: linear-gradient(135deg, #ff9500, #ff0057);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 149, 0, 0.7), 0 0 30px rgba(255, 0, 85, 0.7);
+    }
+
+    .game-button:active {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 244, 85, 0.973);
+    }
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .about-section, .gallery-img {
+    width: 100%;
+  }
+}
+
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 2rem 1rem;
+    }
+  
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  
+    .cta-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  
+    .additional-content {
+      padding: 1.5rem;
+    }
+  
+    .about-section {
+      padding: 1rem;
+    }
+  
+    .photo-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .gallery-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-section {
+      padding: 1.5rem 0.5rem;
+    }
+  
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .cta-button {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+    }
+  
+    .additional-content {
+      padding: 1rem;
+    }
+  
+    .about-section {
+      padding: 0.75rem;
+    }
+  
+    .photo-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .gallery-img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+    }
+  }
+</style>
+
+  
+
+<script>
+  // the typing out name script 
+  document.addEventListener("DOMContentLoaded", () => {
+    const phrases = [
+      "Hello, I'm Ailyn.",
+      "I'm a Software Developer.",
+      "I'm a programmer.",
+      "I'm a team player.",
+      "I ❤️ open-source.",
+      "I'm a problem solver.",
+      "I'm a coder.",
+      "I'm a techie.",
+      "I ❤️ learning.",
+      "I'm passionate.",
+      "I'm ❤️ full-stack.",
+      "I'm a creator.",
+      "I'm a builder.",
+      "I'm an innovator."
+    ];
+    const typingSpeed = 100;
+    const erasingSpeed = 50;
+    const delayBetweenPhrases = 2000;
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    const typedTextElement = document.getElementById("typed-text");
+    const toggleButton = document.getElementById("toggle-button");
+    const additionalContent = document.getElementById("additional-content");
+    const heroSection = document.getElementById("about");
+
+    function type() {
+      if (typedTextElement) {
+        if (charIndex < phrases[phraseIndex].length) {
+          typedTextElement.textContent += phrases[phraseIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, typingSpeed);
+        } else {
+          setTimeout(erase, delayBetweenPhrases);
+        }
+      }
+    }
+
+    function erase() {
+      if (typedTextElement) {
+        if (charIndex > 0) {
+          typedTextElement.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(erase, erasingSpeed);
+        } else {
+          phraseIndex++;
+          if (phraseIndex >= phrases.length) {
+            phraseIndex = 0;
+          }
+          setTimeout(type, typingSpeed);
+        }
+      }
+    }
+
+    setTimeout(type, delayBetweenPhrases);
+
+    if (toggleButton && additionalContent && heroSection) {
+      toggleButton.addEventListener("click", () => {
+        if (additionalContent.style.display === "none" || additionalContent.style.display === "") {
+          additionalContent.style.display = "block";
+          heroSection.classList.add("expanded");
+          additionalContent.classList.add("show");
+        } else {
+          additionalContent.style.display = "none";
+          heroSection.classList.remove("expanded");
+          additionalContent.classList.remove("show");
+        }
+      });
+    }
+  });
+  // name script of typing out finished here new script begins 
+
+  // new script of local time begins 
+  function updateTime() {
+    const timeElement = document.getElementById('local-time');
+    if (timeElement) {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      timeElement.textContent = timeString;
+    }
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+  // end of time script local 
+
+  // new script begins ping pong game 
+  const canvas = document.getElementById("pong") as HTMLCanvasElement | null;
+  const context = canvas?.getContext("2d");
+
+  if (!canvas || !context) {
+    throw new Error("Canvas or 2D context could not be initialized.");
+  }
+
+  const user = {
+    x: 0,
+    y: canvas.height / 2 - 50,
+    width: 10,
+    height: 55,
+    color: "WHITE",
+    score: 0,
+  };
+
+  const com = {
+    x: canvas.width - 10,
+    y: canvas.height / 2 - 50,
+    width: 10,
+    height: 55,
+    color: "WHITE",
+    score: 0,
+  };
+
+  const ball = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    radius: 10,
+    speed: 5,
+    velocityX: 5,
+    velocityY: 5,
+    color: "WHITE",
+  };
+
+  let gameInterval: ReturnType<typeof setInterval> | undefined;
+
+  function drawRect(x: number, y: number, w: number, h: number, color: string) {
+    context!.fillStyle = color;
+    context!.fillRect(x, y, w, h);
+  }
+
+  function drawCircle(x: number, y: number, r: number, color: string) {
+    context!.fillStyle = color;
+    context!.beginPath();
+    context!.arc(x, y, r, 0, Math.PI * 2, false);
+    context!.closePath();
+    context!.fill();
+  }
+
+  function drawText(text: string, x: number, y: number, color: string) {
+    context!.fillStyle = color;
+    context!.font = "45px fantasy";
+    context!.fillText(text, x, y);
+  }
+
+  function drawNet() {
+    for (let i = 0; i <= canvas!.height; i += 15) {
+      drawRect(canvas!.width / 2 - 1, i, 2, 10, "WHITE");
+    }
+  }
+
+  function render() {
+    drawRect(0, 0, canvas!.width, canvas!.height, "BLACK");
+    drawNet();
+    drawRect(user.x, user.y, user.width, user.height, user.color);
+    drawRect(com.x, com.y, com.width, com.height, com.color);
+    drawCircle(ball.x, ball.y, ball.radius, ball.color);
+    drawText(user.score.toString(), canvas!.width / 4, canvas!.height / 5, "WHITE");
+    drawText(com.score.toString(), (3 * canvas!.width) / 4, canvas!.height / 5, "WHITE");
+  }
+
+  function game() {
+    update();
+    render();
+  }
+
+  function update() {
+    ball.x += ball.velocityX;
+    ball.y += ball.velocityY;
+
+    if (ball.y + ball.radius > canvas!.height || ball.y - ball.radius < 0) {
+      ball.velocityY = -ball.velocityY;
+    }
+
+    let player = ball.x < canvas!.width / 2 ? user : com;
+
+    if (collision(ball, player)) {
+      let collidePoint = ball.y - (player.y + player.height / 2);
+      collidePoint = collidePoint / (player.height / 2);
+      let angleRad = (Math.PI / 4) * collidePoint;
+      let direction = ball.x < canvas!.width / 2 ? 1 : -1;
+      ball.velocityX = direction * ball.speed * Math.cos(angleRad);
+      ball.velocityY = ball.speed * Math.sin(angleRad);
+      ball.speed += 0.5;
+    }
+
+    if (ball.x - ball.radius < 0) {
+      com.score++;
+      resetBall();
+    } else if (ball.x + ball.radius > canvas!.width) {
+      user.score++;
+      resetBall();
+    }
+
+    com.y += (ball.y - (com.y + com.height / 2)) * 0.1;
+
+    if (user.score === 10 || com.score === 10) {
+      resetGame();
+    }
+  }
+
+  function collision(b: any, p: any) {
+    p.top = p.y;
+    p.bottom = p.y + p.height;
+    p.left = p.x;
+    p.right = p.x + p.width;
+
+    b.top = b.y - b.radius;
+    b.bottom = b.y + b.radius;
+    b.left = b.x - b.radius;
+    b.right = b.x + b.radius;
+
+    return (
+      p.left < b.right &&
+      p.top < b.bottom &&
+      p.right > b.left &&
+      p.bottom > b.top
+    );
+  }
+
+  function resetBall() {
+    ball.x = canvas!.width / 2;
+    ball.y = canvas!.height / 2;
+    ball.speed = 5;
+    ball.velocityX = -ball.velocityX;
+  }
+
+  function resetGame() {
+    user.score = 0;
+    com.score = 0;
+    resetBall();
+    render();
+    if (gameInterval) {
+      clearInterval(gameInterval);
+    }
+  }
+
+  function startGame() {
+    if (gameInterval) {
+      clearInterval(gameInterval);
+    }
+    gameInterval = setInterval(game, 1000 / 50);
+  }
+
+  function stopGame() {
+    if (gameInterval) {
+      clearInterval(gameInterval);
+    }
+  }
+
+  canvas.addEventListener("mousemove", movePaddle);
+  function movePaddle(evt: MouseEvent) {
+    let rect = canvas!.getBoundingClientRect();
+    user.y = evt.clientY - rect.top - user.height / 2;
+  }
+
+  const startButton = document.getElementById("startButton");
+  if (startButton) {
+    startButton.addEventListener("click", startGame);
+  }
+
+  const stopButton = document.getElementById("stopButton");
+  if (stopButton) {
+    stopButton.addEventListener("click", stopGame);
+  }
+
+  const resetButton = document.getElementById("resetButton");
+  if (resetButton) {
+    resetButton.addEventListener("click", resetGame);
+  }
+</script>
+

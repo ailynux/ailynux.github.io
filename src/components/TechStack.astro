@@ -1,0 +1,243 @@
+---
+//title: Tech Stack
+---
+
+<div class="tech-container">
+    <h2 class="tech-title">Tech Stack</h2>
+    <ul class="tech-list">
+        <li class="tech-item">
+            <img src="./images/html_logo.png" alt="HTML" />
+            <span>HTML</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/css_logo01.png" alt="CSS" />
+            <span>CSS</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/javascript_logo.png" alt="JavaScript" />
+            <span>JavaScript</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/python_logo.png" alt="Python" />
+            <span>Python</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/bash_logo.png" alt="Bash" />
+            <span>Bash</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/linux_logo.png" alt="Unix" />
+            <span>Unix</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/csharp_logo.png" alt="C#" />
+            <span>C#</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/npmcube_logo.png" alt="Npm" />
+            <span>Npm</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/react_logo.png" alt="React" />
+            <span>React</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/mysql_logo.png" alt="MySQL" />
+            <span>MySQL</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/sql_logo.png" alt="SQL" />
+            <span>SQL</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/android_logo.png" alt="Android" />
+            <span>Android</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/ios_logo.png" alt="iOS" />
+            <span>iOS</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/networking_logo.png" alt="Networking" />
+            <span>Networking</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/astro-icon-dark.png" alt="Astro" />
+            <span>Astro</span>
+        </li>
+        <li class="tech-item">
+            <img src="./images/netlify_logo.png" alt="Netlify" />
+            <span>Netlify</span>
+        </li>
+    </ul>
+</div>
+
+<style>
+    :root {
+        --primary-color: #4a4e69;
+        --secondary-color: #000000;
+        --background-gradient: linear-gradient(135deg, #66605e, #f2e9e4);
+        --text-color: #ffffff;
+        --highlight-color: #625f66;
+        --border-radius: 12px;
+        --transition-duration: 0.4s;
+        --font-family: 'Fira Code', monospace;
+        --background-color: #fff;
+    }
+
+    body {
+        background: var(--background-gradient);
+        animation: backgroundAnimation 15s ease infinite;
+    }
+
+    .tech-container {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9)), url('./images/cubes.webp'); /**big thanks to cubes GIF by xponentialdesign*/
+        padding: 3rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 15px 30px rgba(0, 0, 0, 0.05);
+        max-width: 900px;
+        margin: auto;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+        background-blend-mode: overlay;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .tech-container:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 16px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .tech-title {
+        font-family: var(--font-family);
+        font-size: 3rem;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 2rem;
+        position: relative;
+        background: linear-gradient(135deg, #bbb0b0, #000000);
+        padding: 0.5rem;
+        border-radius: var(--border-radius);
+    }
+
+    .tech-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+    .tech-item {
+        background-color: var(--highlight-color);
+        color: var(--text-color);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-item img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.75rem;
+        transition: transform var(--transition-duration);
+    }
+
+    .tech-item:hover img {
+        transform: scale(1.3);
+    }
+
+    .tech-item span {
+        font-family: var(--font-family);
+        font-size: 1.2rem;
+    }
+
+    .tech-item:hover {
+        transform: translateY(-10px) rotate(3deg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background-color: var(--secondary-color);
+        color: var(--background-color);
+    }
+
+    .tech-item:hover span {
+        color: var(--background-color);
+    }
+
+    @keyframes backgroundAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .tech-container {
+            padding: 2rem;
+            max-width: 100%;
+        }
+
+        .tech-title {
+            font-size: 2.5rem;
+        }
+
+        .tech-list {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .tech-item {
+            padding: 1rem;
+        }
+
+        .tech-item img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .tech-item span {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tech-container {
+            padding: 1rem;
+        }
+
+        .tech-title {
+            font-size: 2rem;
+        }
+
+        .tech-list {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .tech-item {
+            padding: 0.75rem;
+        }
+
+        .tech-item img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .tech-item span {
+            font-size: 0.875rem;
+        }
+    }
+</style>

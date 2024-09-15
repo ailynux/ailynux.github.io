@@ -1,0 +1,758 @@
+---
+// This is a workaround as Astro doesn't support direct env access in .astro files.
+const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+---
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="flex-container">
+      <div class="scene">
+        <div class="cube">
+          <div class="face front">Hello World!</div>
+          <div class="face back">Hello World</div>
+          <div class="face left">I'm Ailyn.</div>
+          <div class="face right">Hello World!</div>
+          <div class="face top">Hello World</div>
+          <div class="face bottom">Hello World!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <div class="social-icons">
+        <a href="https://github.com/ailynux" target="_blank" rel="noopener noreferrer">
+          <img src="../images/social_github.png" alt="GitHub" />
+          <p>GitHub</p>
+        </a>
+        <a href="https://www.linkedin.com/in/ailyn-diaz-802943225" target="_blank" rel="noopener noreferrer">
+          <img src="../images/social_linkedin.png" alt="LinkedIn" />
+          <p>LinkedIn</p>
+        </a>
+        <a href="https://leetcode.com/yourprofile" target="_blank" rel="noopener noreferrer">
+          <img src="../images/social_leetcode.png" alt="LeetCode" />
+          <p>LeetCode</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-content">
+      <p>Feel free to reach out to me for collaboration opportunities or to discuss potential projects.</p>
+    </div>
+
+    <form method="POST" id="contact-form">
+      <input type="hidden" name="access_key" value={accessKey} />
+      <!-- Honeypot Field -->
+      <div style="display:none;">
+        <label for="honeypot">Leave this field empty</label>
+        <input type="text" id="honeypot" name="honeypot" />
+      </div>
+      <div class="form-group">
+        <label for="user_name">Name</label>
+        <input type="text" id="user_name" name="user_name" required pattern="[a-zA-Z\s]+" title="Name should only contain letters." class="styled-input" />
+      </div>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+        <input type="email" id="user_email" name="user_email" required class="styled-input" />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required class="styled-textarea"></textarea>
+      </div>
+      <!-- Google reCAPTCHA widget -->
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+      <button type="submit" class="submit-button">Send Email</button>
+      <div id="result"></div>
+    </form>
+  </div>
+
+  <!-- DIVER AT THE BOTTOM -->
+  <div class="header-container">
+    <img src="../images/divercoding.webp" alt="Ailyn Diaz" />
+  </div>
+
+  <!-- Success and error messages -->
+  <div id="form-status"></div>
+
+  <div class="floating-cubes-style">
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+    <div class="floating-element floating-3"></div>
+    <div class="floating-element floating-4"></div>
+    <div class="floating-element floating-5"></div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-title">Ailyn's Dev Portfolio</p>
+      <p class="footer-year">&copy; <span id="currentYear"></span>. All rights reserved.</p>
+      <p class="footer-credits">Created by Ailyn Diaz</p>
+    </div>
+  </footer>
+</section>
+
+
+
+  <!-- This has to go here because its a loader and wouldnt work other wise lol -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const result = document.getElementById('result');
+
+  if (form && result) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      // Honeypot field validation
+      if (formData.get('honeypot')) {
+        result.innerHTML = "Spam detected!";
+        return;
+      }
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      result.innerHTML = "Please wait...";
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          result.innerHTML = json.message;
+        } else {
+          console.log(response);
+          result.innerHTML = json.message;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        result.innerHTML = "Something went wrong!";
+      })
+      .then(function() {
+        form.reset();
+        setTimeout(() => {
+          if (result) {
+            result.style.display = "none";
+          }
+        }, 3000);
+      });
+    });
+  }
+});
+// TypeScript to dynamically set the current year in the footer
+window.addEventListener('DOMContentLoaded', () => {
+  const currentYearElement = document.getElementById('currentYear');
+  if (currentYearElement !== null) {
+    currentYearElement.textContent = new Date().getFullYear().toString();
+  }
+});
+</script>
+
+<!--STYLE BEGINS -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem; /* Adjust as necessary */
+}
+
+.scene, .contact-image2 {
+  flex: 1;
+  max-width: 45%; /* Adjust as necessary */
+}
+
+.scene {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-image2 {
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .scene, .contact-image2 {
+    max-width: 100%;
+  }
+}
+
+/* CSS for side-by-side alignment */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .header-container h1 {
+    margin-right: 1rem; /* Adjust spacing between heading and image */
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .header-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20%; /* Example styling for rounded image */
+  }
+
+.contact-content {
+    padding: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .contact-content p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2rem; /* Make the font size large for visibility */
+    font-weight: bold;
+    color: #ffffff; /* Ensure high contrast */
+    background: linear-gradient(135deg, #1f98b1, #3742fa);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    animation: slideIn 2s ease-in-out;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-content p::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    animation: slide 4s infinite;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+  .contact-content .contact-info {
+    max-width: 500px;
+  }
+
+.section.contact-section {
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #000000, #757474);
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2.5rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem;
+  text-align: left;
+
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #00d4ff;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.contact-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+}
+
+
+.contact-image2 {
+  width: auto; /* Adjust size to make the image smaller */
+  height: auto; /* Ensure height matches width to keep it square */
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px #00d4ff;
+  object-fit: cover; /* Ensure the image covers the entire square area */
+}
+
+.contact-info {
+    text-align: left;
+    color: #e0e0e0;
+    margin-top: 3rem; /* Adjusted margin to prevent overlap */
+    max-width: 600px; /* Adjust as per your design needs */
+    padding-left: 20px; /* Add padding as needed */
+    padding-right: 20px; /* Add padding as needed */
+    
+}
+
+.contact-info p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #00d4ff;
+}
+
+.contact-info a {
+    color: #dee0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #6a9699;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 3rem;
+    margin-bottom: .5rem;
+}
+
+.social-icons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+}
+
+.social-icons p {
+    font-family: monospace;
+    font-size: large;
+    padding-left: 0; /* Center aligned text */
+}
+
+.social-icons a img {
+    width: 90px;
+    height: 80px;
+    filter: drop-shadow(0 0 5px #ffffff);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #f5dee4);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #f1f1f1;
+    font-size: 1.2rem; /* Increased font size for labels */
+    text-transform: uppercase; /* Uppercase labels for a futuristic look */
+}
+
+.styled-input,
+.styled-textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #7e7e7e;
+    background: #0a0a0a;
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.2rem; /* Increased font size for input fields */
+    line-height: 1.6; /* Improved line height for better readability */
+}
+
+.styled-input:focus,
+.styled-textarea:focus {
+    border-color: #3c6aff;
+    box-shadow: 0 0 15px rgba(39, 125, 255, 0.8);
+}
+
+.styled-textarea {
+    resize: none;
+    min-height: 50px; /* Ensured minimum height for consistency */
+    font-size: 1.2rem; /* Increased font size for textarea */
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase button text */
+    color: #ffffff;
+    background: linear-gradient(135deg, #3742fa, #621980);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.7);
+    margin-top: 2rem;
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #92020e, #f06c00);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(248, 248, 248, 0.7), 0 0 30px rgba(255, 0, 64, 0.8);
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+    .social-icons {
+        flex-direction: wrap ;
+        align-items: center;
+        padding-top: 80%;
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        width: 80px;
+    }
+
+    .contact-info {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .styled-input,
+    .styled-textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .submit-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* this is the super cool cube that moves*/
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 2rem auto;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  animation: spin 10s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, rgba(0, 0, 255, 0.8), rgba(0, 128, 255, 0.8));
+  border: 2px solid #00d4ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 212, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff;
+}
+
+.face.front  { transform: translateZ(100px); }
+.face.back   { transform: rotateY(180deg) translateZ(100px); }
+.face.left   { transform: rotateY(-90deg) translateZ(100px); }
+.face.right  { transform: rotateY(90deg) translateZ(100px); }
+.face.top    { transform: rotateX(90deg) translateZ(100px); }
+.face.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+/* this is the super cool cube that moves*/
+
+.text-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.contact-section {
+  position: relative; /* Ensure the floating elements are positioned relative to this section */
+  z-index: 0; /* Base z-index for stacking context */
+}
+
+.floating-cubes-style {
+  position: absolute; /* Ensure it stays within the contact section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it is behind the contact content */
+  overflow: hidden; /* Prevents floating elements from causing scrollbars */
+}
+
+.floating-element {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-40px) translateX(40px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.floating-element.floating-1 {
+  top: 10%;
+  left: 10%;
+  animation-duration: 6s;
+  background: #ff4757;
+}
+
+.floating-element.floating-2 {
+  top: 10%;
+  left: 70%;
+  animation-duration: 8s;
+  background: #3742fa;
+}
+
+.floating-element.floating-3 {
+  top: 19%;
+  left: 5%;
+  animation-duration: 10s;
+  background: #2ed573;
+}
+
+.floating-element.floating-4 {
+  top: 18%;
+  left: 80%;
+  animation-duration: 12s;
+  background: #ffa502;
+}
+
+.floating-element.floating-5 {
+  top: 27%;
+  left: 75%;
+  animation-duration: 14s;
+  background: #621980;
+}
+
+
+/**END FOOTER */
+/* Importing a graffiti-style web font */
+@font-face {
+  font-family: 'Urban Jungle';
+  src: url('../fonts/UrbanJungleDemo.otf') format('opentype');
+}
+
+.site-footer {
+  text-align: center;
+  padding: 70px 10px;
+  background-image: url('../images/2001.webp'); /* Pixel Art 8Bit GIF by pixel jeff*/
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay to make text more readable */
+}
+
+.site-footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #00d4ff; /* Use a striking color for graffiti effect */
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+  font-family: 'Urban Jungle', sans-serif; /* Using the graffiti-style font */
+  margin: 0;
+  animation: shake 0.5s infinite alternate; /* Adding an animation for a dynamic effect */
+}
+
+.footer-year, .footer-credits {
+  font-size: 15px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+}
+
+/* Animation for shaking text effect */
+@keyframes shake {
+  0% { transform: translateX(1); }
+  50% { transform: translateX(-2px); }
+  100% { transform: translateX(2px); }
+}
+
+</style>
+
+<!-- SCRIPT NEXT  -->
+
+<!-- /* this is the super cool cube that moves*/ -->
+<script>
+  const cube = document.querySelector('.cube') as HTMLElement | null;
+  let isDragging = false;
+  let startX: number, startY: number, initialRotX: number, initialRotY: number;
+
+  if (cube) {
+    cube.style.animation = 'spin 10s infinite linear';
+
+    document.addEventListener('mousedown', (e: MouseEvent) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      initialRotX = parseFloat(getComputedStyle(cube).transform.split(',')[1]) || 0;
+      initialRotY = parseFloat(getComputedStyle(cube).transform.split(',')[0]) || 0;
+      cube.style.animation = 'none';
+    });
+
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      if (isDragging) {
+        let deltaX = e.clientX - startX;
+        let deltaY = e.clientY - startY;
+        let rotX = initialRotX + deltaY;
+        let rotY = initialRotY + deltaX;
+        cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      cube.style.animation = 'spin 10s infinite linear';
+    });
+  }
+                // this is the footer date that causes it be updated automatically 
+  // Fixing "Object is possibly 'null'" and "Type 'number' is not assignable to type 'string'"
+  let element = document.getElementById('elementId');
+  if (element !== null) {
+    element.textContent = '123'; // Ensure the text content is a string
+  }
+
+  // Example with null check
+  const someElement = document.getElementById('someElementId');
+  if (someElement !== null) {
+    someElement.textContent = 'Hello, world!';
+  }
+
+  // Example with non-null assertion operator
+  const anotherElement = document.getElementById('anotherElementId')!;
+  anotherElement.textContent = 'Hello, world!';
+
+  // Convert number to string
+  const someNumber: number = 123;
+  const someString: string = someNumber.toString();
+
+  // Set the current year in the footer
+const currentYearElement = document.getElementById('currentYear');
+if (currentYearElement !== null) {
+  currentYearElement.textContent = new Date().getFullYear().toString();
+}
+
+</script>
+
