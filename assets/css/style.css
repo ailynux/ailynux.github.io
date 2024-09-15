@@ -1,0 +1,758 @@
+/*the top is the main content for most of the pages displayed these would be all the essentials needed*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #000000;
+    color: #00ff00;
+    font-family: monospace;
+  }
+  
+  header {
+   
+    background-image: url(../images/highrez_code.gif);
+    background-repeat: repeat;
+    background-size: cover;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      position: static; /* Change to static positioning for smaller screens */
+      background-size: contain; /* Adjust the background size for better visibility on smaller screens */
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    header {
+      padding: 20px; /* Adjust the padding for medium-sized screens */
+    }
+  }
+  
+  @media (max-width: 1600px) {
+    header {
+      padding: 30px; /* Adjust the padding for larger screens */
+    }
+  }
+  
+  .main {
+    flex: 1;
+    display: flex;
+  }
+  
+  footer {
+    background-color: #000000;
+    color: #00ff00;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+  }
+  
+  .navbar {
+    background-color: #000000;
+  }
+  
+  .navbar-dark .navbar-brand {
+    color: #00ff00;
+    font-weight: bold;
+    
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #00ff00;
+    letter-spacing: 3px; /* Increased letter spacing for a more spread out look */
+    margin-right: 20px; /* Adjust the margin as needed */
+    text-transform: uppercase; /* Uppercase business name */
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #00cc00;
+  }
+  
+  .container {
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container h2 {
+    color: #00ff00;
+  }
+  
+  .container p {
+    color: #00cc00;
+  }
+  
+  .footer {
+    background-color: #424242;
+    color: #00ff00;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /*the container that comes first is here the coding world one */
+  .parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    .parent-container {
+      flex-direction: column; /* Change flex-direction to column for smaller screens */
+      height: auto; /* Adjust the height to auto for smaller screens */
+      padding: 20px; /* Add padding for better spacing on smaller screens */
+    }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .parent-container {
+      flex-direction: column; /* Change flex-direction to column for smaller screens */
+      height: auto; /* Adjust the height to auto for smaller screens */
+      padding-top: 60px; /* Add top padding to avoid covering the nav */
+    }
+  }
+  @media (min-width: 1025px) {
+    .parent-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      padding-top: 60px; /* Add top padding to avoid covering the nav */
+    }
+  }
+
+  .coding-world-container {
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 5px;
+    color: #ffffff;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+  }
+  
+  .coding-world-container h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .coding-world-container p {
+    margin-bottom: 20px;
+  }
+  
+  #play-game-btn {
+    margin-top: 10px;
+    background-color: #9300f5;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  #play-game-btn:hover {
+    background-color: #1822aa;
+  }
+  
+  #game-result {
+    margin-top: 20px;
+    font-weight: bold;
+    color:red;
+  }
+  
+  .matrixpic {
+    margin-bottom: 20px;
+  }
+
+  .coding-world-image {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-5px) rotate(-5deg); }
+    20% { transform: translateX(5px) rotate(5deg); }
+    30% { transform: translateX(-5px) rotate(-5deg); }
+    40% { transform: translateX(5px) rotate(5deg); }
+    50% { transform: translateX(-5px) rotate(-5deg); }
+    60% { transform: translateX(5px) rotate(5deg); }
+    70% { transform: translateX(-5px) rotate(-5deg); }
+    80% { transform: translateX(5px) rotate(5deg); }
+    90% { transform: translateX(-5px) rotate(-5deg); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 0.5s;
+  }
+
+  .logo {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-image: url('../images/pika_hat.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+  
+  /*end of this container */
+
+
+  /*the following is the about me container and allthat on the index page still */
+  .about-container {
+    background-image: url('../images/blossom.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  }
+  
+  .image-container {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .about-container h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border: 1px solid #000000; /* Add a border with white color */
+    padding: 2px; /* Add padding to create space between the text and the border */
+    background-color: rgba(0, 0, 0, 0.555); /* Add a color to the padding area */
+  }
+  
+  .about-container p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #ffffff;
+    border: 1px solid #000000; /* Add a border with white color */
+    padding: 2px; /* Add padding to create space between the text and the border */
+    background-color: rgba(0, 0, 0, 0.555); /* Add a color to the padding area */
+  }
+  /*the about me container ends here to maintain organized u knowww*/
+
+
+/*this is for the div right above the slideshow showing all the projects*/
+.header-project {
+    background-image: url("../images/skull_.gif");
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-project {
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .header-project h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .header-project p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .header-project a {
+    display: inline-block;
+    background-color: #9300f5;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .header-project a:hover {
+    background-color: #1822aa;
+  }
+/*end of the header for the slideshow projects*/  
+
+
+  /*slide show about all the projects ive done include links that go to github and all that good stuff*/
+  .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .slide {
+    display: none;
+    text-align: center;
+    position: relative;
+    
+  }
+  
+  .slide img {
+    width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  }
+
+  /* Media query for smaller screens */
+@media (max-width: 768px) {
+    .slide img {
+      max-width: 70%; /* Adjust the maximum width as desired for smaller screens */
+    }
+  }
+  
+  /* Media query for larger screens */
+  @media (min-width: 1200px) {
+    .slide img {
+      max-width: 90%; /* Adjust the maximum width as desired for larger screens */
+    }
+  }
+  
+  .slide-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity as needed */
+    color: #fff;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+  
+  .slide:hover .slide-details {
+    opacity: 1;
+  }
+  
+  .slide-details h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .slide-details p {
+    margin-bottom: 10px;
+  }
+  
+  .slide-details a {
+    display: inline-block;
+    background-color: #9300f5;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .slide-details a:hover {
+    background-color: #1822aa;
+  }
+  
+  .controls {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .prev-btn,
+  .next-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 20px 100px;
+    font-size: 36px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .prev-btn:hover,
+  .next-btn:hover {
+  background-color: #ff0707ad;
+}
+.prev-btn:active,
+.next-btn:active {
+  transform: translateY(2px);
+}
+
+@media (max-width: 780px) {
+  .prev-btn,
+  .next-btn {
+    font-size: 20px;
+    padding: 12px 20px;
+  }
+}
+
+   /*end of the slide show of projects--------------------------------*/
+
+
+
+/* for the random text div at the bottom */
+.text-animation-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: 20px;
+  z-index: 1; /* Set a higher z-index value to ensure it's not covered by other elements */
+}
+
+#textAnimation {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: textAnimation 3s infinite;
+  z-index: 2; /* Set a higher z-index value than .text-animation-container to ensure it's above it */
+}
+
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+    /*the start of the social media find me all this are the links on the bottom*/
+    h2.custom-heading {
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 5px;
+        background-color: #333333;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: background-color 0.3s ease-in-out;
+        margin-top: 2%;
+      }
+      
+      h2.custom-heading:hover {
+        background-color: #5f0085;
+      }
+      /*this is the header right above the social media links*/
+
+      /*start of links */
+    .social-media {
+        background-image: url("../images/girlsea.gif");
+        background-size: 150%;
+        background-position: center;
+        padding: 40px;
+      }
+    .social-shapes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px; /* Adjust the gap as needed */
+      }
+
+      .shape-link {
+        display: inline-block;
+        width: 70px; /* Adjust the width as needed */
+        height: 70px; /* Adjust the height as needed */
+        border-radius: 30px; /* Adjust the border-radius as needed */
+        transition: transform 0.5s ease-in-out;
+      }
+      
+      .shape-link:hover {
+        transform: scale(1.1);
+      }
+      
+      .shape-link img {
+        width: auto;
+        height: 100%;
+      }
+      
+      .shape-link.floating {
+        animation: floatAnimation 3s ease-in-out infinite alternate;
+      }
+      
+      @keyframes floatAnimation {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-10px);
+        }
+      } /*end of links*/
+
+      /*The footer and its goodstuff*/
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo-footer {
+        display: flex;
+        align-items: center;
+      }
+      
+      .logo-footer img {
+        width: 100px;
+        height: auto;
+      }
+      
+      footer {
+        font-size: 14px;
+      }
+/*end of the footer and the pokemon underneath it*/
+
+      /* Media query for iPhone SE */
+@media only screen and (max-width: 500px) {
+    .container {
+      justify-content: center;
+      align-items: flex-start;
+    }
+    
+    .logo-footer {
+      align-items: flex-start;
+    }
+    
+    .logo-footer img {
+        max-width: 100%; /* Prevent image overflow */
+        max-height: 100%; /* Prevent image overflow */
+    }
+    
+    footer {
+      font-size: 12px;
+    }
+    
+    body {
+      font-size: 12px;
+      justify-content: center;
+    }
+    
+    header {
+      padding: 5px;
+    }
+    
+    .navbar-dark .navbar-brand {
+      font-size: 16px;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link {
+      font-size: 10px;
+      margin-right: 5px;
+    }
+    
+    .container {
+      padding: 5px;
+    }
+    
+    .container h2 {
+      font-size: 16px;
+    }
+    
+    .container p {
+      font-size: 12px;
+    }
+    
+    .footer {
+      padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+
+    .social-media {
+        background-size: 150%;
+        background-position: center;
+        padding: 20px; /* Decrease the padding for smaller screens */
+        background-repeat: no-repeat; /* Prevent the background image from repeating */
+      }
+      
+      .social-shapes {
+        display: flex;
+        flex-wrap: wrap; /* Allow shapes to wrap within the container */
+        gap: 50px; /* Adjust the gap between shapes as needed */
+      }
+      
+      .shape-link {
+        width: 40px; /* Adjust the width as needed */
+        height: 40px; /* Adjust the height as needed */
+        border-radius: 20px; /* Adjust the border-radius as needed */
+      }
+      
+      .shape-link img {
+        max-width: 100%; /* Prevent image overflow */
+        max-height: 100%; /* Prevent image overflow */
+      }
+      
+      .shape-link.floating {
+        animation: floatAnimation 2s ease-in-out infinite alternate;
+      }
+
+      .about-container {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Center the text */
+      }
+
+      .image-container {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .about-container h3 {
+        font-size: 16px;
+        text-align: center; /* Center the text */
+      }
+    
+      .about-container p {
+        font-size: 16px;
+        text-align: center; /* Center the text */
+      }
+  }
+   /* Additional adjustments for iPhone SE */
+/* end of media queries */
+
+
+
+/* FOR THE MINI GAME TILE SECTION styles.css */
+.sliding-tile-game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  padding: 20px; /* This applies 20px padding to all sides */
+}
+.mini-game-container {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 600px;
+}
+
+.mini-game-section {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    background-color: #111;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    border: 2px solid #222;
+    border-radius: 10px;
+    transform-style: preserve-3d; /* Enable 3D transforms on child elements */
+}
+
+.mini-game-section div {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #2e2e2e;
+    border: 2px solid #1a1a1a;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+    user-select: none; /* Prevent text selection on tiles */
+}
+
+.mini-game-section div.empty {
+  background-color: #111;
+  cursor: default;
+}
+
+button {
+  font-size: 18px;
+  padding: 12px 20px;
+  background-color: #9c0c0c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s, transform 0.2s;
+  font-family: 'Creepster', cursive; /* Using the "Creepster" font */
+}
+
+button:hover {
+  background-color: #610808;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #8c0808;
+  transform: scale(0.95);
+}
+
+@media only screen and (max-width: 500px) {
+  .sliding-tile-game-container .mini-game-section {
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(4, 100px);
+}
+}
+/* END END END FOR THE MINI GAME TILE SECTION styles.css */
+
