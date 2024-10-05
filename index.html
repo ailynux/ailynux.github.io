@@ -1,171 +1,354 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI-LYN</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>  
-  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ailyn's Net</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #222;">
-          <a class="navbar-brand" href="./index.html">AI-LYN.com</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./about.html">About Me</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./contact.html">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-    
-      <main>
-        <div class="parent-container">
-            <div class="row">
-              <div class="col-12">
-                <div class="coding-world-container">
-                  <h2>Welcome to My World<span class="logo"></span></h2>
-                  <p>How lucky are you? Test your luck.</p>
-                  <button id="play-game-btn" class="btn btn-primary">Play Game</button>
-                  <div id="game-result"></div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="matrixpic">
-                <img src="assets/images/city_moving.webp" alt="Coding World Image" class="coding-world-image">
-              </div>
-            </div>
-            </div>
-          </div>
-<!-- end of video game lucky test  -->
 
-<!-- welcome users cool animation 
-<div class="text-animation-container">
-  <div id="textAnimation">Welcome!</div>
-</div>
--->
+  <!-- Container for the entire content -->
+  <div class="container">
 
-<!-- this area is for the tile game 
-<div class="sliding-tile-container">
-<div class="mini-game-container">
-  <div class="mini-game-section" id="mini-game">
-  </div>
-  <button id="shuffle-btn">Shuffle Tiles</button>
-</div>
-</div> -->
-
-<!-- all about me section  -->
-            <div class="col-12">
-                <div class="container about-container">
-                <a href="./about.html"> <!--link starts here and ends at the end of this container-->
-                  <h3>Who Am I?..</h3>
-                  <div class="image-container">
-                    <img src="./assets/images/ailynpfp.png" alt="Profile Image">
-                  </div>
-                  <p>My name is Ailyn Diaz.</p>
-                </div>
-              </div>
-            </a> <!--made this into a whole link that will take users to the about me section based on my homepage-->
-              
-            <div class="header">
-                <div class="header-project">
-                  <h2>My Projects</h2>
-                </div>
-              </div>
-              
-                  
-            <!-- start of the slideshow -->
-            <div class="slideshow-container">
-              <!-- Slide for Personal Portfolio -->
-              <div class="slide">
-                <img src="./assets/images/green.webp" alt="Personal Portfolio">
-                <div class="slide-details">
-                  <h3>Personal Portfolio</h3>
-                  <p>Explore my personal portfolio built using Astro, JavaScript, and Netlify as the backend. This site showcases my skills and projects in web development.</p>
-                  <a href="https://ailynux.netlify.app/" target="_blank">Visit Portfolio</a>
-                </div>
-              </div>
-
-              <!-- Slide for Astro, React, TypeScript Project -->
-              <div class="slide">
-                <img src="./assets/images/giphywaves.webp" alt="Astro React TypeScript">
-                <div class="slide-details">
-                  <h3>Modern Web App Resume</h3>
-                  <p>Check out my modern web application developed using Astro, React, TypeScript, and other modern frameworks, demonstrating cutting-edge development techniques.</p>
-                  <a href="https://ailyndevop.netlify.app" target="_blank">See Project</a>
-                </div>
-              </div>
-
-              <!-- Slide for GitHub Projects -->
-              <div class="slide">
-                <img src="./assets/images/radio.webp" alt="GitHub Projects">
-                <div class="slide-details">
-                  <h3>GitHub Projects & Guides</h3>
-                  <p>Visit my GitHub for the latest projects and comprehensive guides I've created, covering a range of topics and technologies in software development.</p>
-                  <a href="https://github.com/ailynux" target="_blank">GitHub Profile</a>
-                </div>
-              </div>
-            </div>
-
-              <div class="controls">
-                <button class="prev-btn">&#10094;</button>
-                <button class="next-btn">&#10095;</button>
-              </div> 
-<!-- end of my projects slideshow -->
-
-
-<!--start of links -->
-              <div> </div>
-              <div>
-                <h2 class="custom-heading">Find me...</h2>
-              </div>
-              <div class="social-media">
-                <div class="social-shapes">
-                  <a href="https://discord.com/users/yourdiscordid" class="shape-link" target="_blank">
-                    <img src="./assets/images/discord.png" alt="Discord">
-                  </a>
-                  <a href="https://github.com/ailynux" class="shape-link" target="_blank">
-                    <img src="./assets/images/github_clear.png" alt="GitHub">
-                  </a>
-                  <a href="https://www.linkedin.com/in/ailyndiaz01/" class="shape-link" target="_blank">
-                    <img src="./assets/images/linkedinicon.png" alt="LinkedIn">
-                  </a>
-                </div>
-              </div>
-              
-      </main>
-      
-      <footer class="text-white py-3" style="background-color: #222;">
-        <div class="container text-center">
-          <div class="logo-footer">
-            <img src="./assets/images/mew.png" alt="Logo">
-          </div>
-          <p>&copy;2024 AI-LYN.com</p>
-          <div class="logo-footer">
-            <img src="./assets/images/charmander.png" alt="Logo">
-          </div>
-        </div>
-      </footer>
-      
-      <!-- The recommended practice is to include the JavaScript code just before the closing
-     </body> tag to ensure that the HTML elements have loaded before the JavaScript is executed. -->
-    <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/slideshow.js"></script> <!--for the slideshow appranetly needs to come in after load after-->
-  <script src="./assets/js/minigame.js"></script>
+   <!-- HEADER SECTION -->
+<header>
+  <h1 class="main-title">
+    <span class="typed-text"></span>
+  </h1>
   
+  <!-- Badge Section -->
+<div class="badges">
+  <!-- GitHub Icon -->
+  <a href="https://github.com/ailynux" target="_blank">
+    <img src="https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Icon" />
+  </a>
+
+  <!-- LinkedIn Icon -->
+  <a href="https://www.linkedin.com/in/ailyndiaz01" target="_blank">
+    <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn Icon" />
+  </a>
+
+  <!-- Website 1 Icon -->
+  <a href="https://ailynux.netlify.app" target="_blank">
+    <img src="https://img.shields.io/badge/-Netlify-00C7B7?style=flat&logo=netlify&logoColor=white" alt="Website 1 Icon" />
+  </a>
+
+</div>
+
+</header>
+
+
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+
+      <!-- me section -->
+      <div class="profile-wrapper">
+        <div class="profile-card" style="background-image: url('./assets/images/back.webp');">
+          <img src="./assets/images/photo.jpg" alt="Profile Picture" class="profile-pic">
+          <h2>Ailyn Diaz</h2>
+          <h3>Software Developer</h3>
+        </div>
+    
+        <!-- Single Advanced Fake Terminal -->
+        <div class="fake-terminal">
+            <!-- Terminal Header Bar -->
+            <div class="terminal-header">
+                <div class="buttons">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+                <div class="terminal-title">Terminal - bash</div>
+            </div>
+    
+            <!-- Terminal Content -->
+            <div id="terminal-output">
+                <p>Welcome to Ailyn's terminal. Type 'help' for commands.</p>
+            </div>
+            <div class="input-area">
+                <span class="terminal-prompt"> hi@user:$</span>
+                <input type="text" id="terminal-input" placeholder="Type here..." autofocus />
+            </div>
+        </div>
+    </div>
+    
+        
+
+
+
+
+  <!-- PERSONAL STATS BOX (Dynamic inside profile card) -->
+<div class="stats-box">
+   <!-- SKILLS SECTION (Dynamic skills scroll) -->
+ <section class="skills-banner">
+  <div id="skills">
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/csharp.svg" alt="C#" class="skill-badge"> C#
+    </span> 
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/dotnet.svg" alt=".NET" class="skill-badge"> .NET
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg" alt="React" class="skill-badge"> React
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/typescript.svg" alt="TypeScript" class="skill-badge"> TypeScript
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/apache.svg" alt="LAMP" class="skill-badge"> LAMP
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linux.svg" alt="Linux" class="skill-badge"> Linux
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/microsoftazure.svg" alt="Azure" class="skill-badge"> Azure
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/gnubash.svg" alt="Bash" class="skill-badge"> BASH
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="skill-badge"> Git
+    </span>
+    <span class="separator"></span>
+    <span class="skill-item">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="skill-badge"> Python
+    </span>
+  </div>
+</section>
+    <div class="stat-item">
+        <i class="fas fa-briefcase"></i>
+        <h3>1.5+</h3>
+        <p>Years of Experience</p>
+    </div>
+
+    <div class="stat-item">
+        <i class="fas fa-project-diagram"></i>
+        <h3>30+</h3>
+        <p>Completed Projects</p>
+    </div>
+
+    <div class="stat-item">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>A.Sc.CIS + 5 CERTS</h3>
+        <h3>4.0 GPA</h3>
+        <p>Education</p>
+    </div>
+
+    <div class="stat-item">
+        <i class="fas fa-award"></i>
+        <h3>Outstanding CIS Std. 2023</h3>
+        <p>Awards</p>
+    </div>
+
+    <div class="stat-item">
+        <i class="fas fa-cogs"></i>
+        <h3>Full Stack Developer</h3>
+        <p>Expertise</p>
+    </div>
+
+    <div class="stat-item">
+        <i class="fas fa-language"></i>
+        <h3>English, Spanish</h3>
+        <p>Languages</p>
+    </div>
+</div>
+
+<!-- CTA SECTION BOXES -->
+<section class="cta-section">
+  <div class="cta-container">
+
+    <!-- Projects Box (Linked to GitHub Repository) -->
+    <a href="https://github.com/ailynux" target="_blank" class="cta-box" style="background-image: url('./assets/images/art_pic1.webp');">
+      <div class="cta-content">
+        <i class="fas fa-code"></i> <!-- Example icon -->
+        <h3>Projects</h3>
+        <p>Explore my portfolio of projects showcasing my skills.</p>
+      </div>
+    </a>
+
+    <!-- About Me Box (Linked to LinkedIn Profile) -->
+    <a href="https://www.linkedin.com/in/ailyndiaz01" target="_blank" class="cta-box" style="background-image: url('./assets/images/moon_pic2.webp');">
+      <div class="cta-content">
+        <i class="fas fa-user"></i> <!-- Example icon -->
+        <h3>About Me</h3>
+        <p>Learn more about my background, skills, and experience.</p>
+      </div>
+    </a>
+
+    <!-- Services Box (Linked to Netlify Page) -->
+    <a href="https://ailyndevop.netlify.app" target="_blank" class="cta-box" style="background-image: url('./assets/images/movinglines.webp');">
+      <div class="cta-content">
+        <i class="fas fa-cogs"></i> <!-- Example icon -->
+        <h3>Services</h3>
+        <p>Discover the services I offer, from development to deployment.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+</section>
+
+
+   
+<!-- SHOWCASE SECTION -->
+<section class="showcase">
+  <h2>Latest Creations</h2>
+
+  <!-- Showcase container for project cards -->
+  <div class="project-showcase">
+    <!-- Project 1 with flip animation -->
+    <div class="project-box flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Chessentials</h3>
+          <p>Chessentials is a sleek web-based chess
+             game where users play against Stockfish AI
+              with real-time move validation, built using
+               Flask and Chessboard.js.</p>
+        </div>
+        <div class="flip-card-back">
+          <img src="./assets/images/pawn.webp" alt="Chessentials" class="project-image">
+          <p>Technologies used: Python, Flask, JS, CSS, Devops</p>
+          <a href="https://github.com/project1" class="project-link">View Code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 with flip animation -->
+    <div class="project-box flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3> DSA - LABS </h3>
+          <p>Data Structures and Algorithms is a 
+            GitHub repository offering 14 chapters of 
+            essential data structures and algorithms, to help users.</p>
+        </div>
+        <div class="flip-card-back">
+          <img src="./assets/images/greenvector.avif" alt="O-Vision" class="project-image">
+          <p>Technologies used: Python, Git</p>
+          <a href="https://github.com/project2" class="project-link">View Code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 with flip animation -->
+    <div class="project-box flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>BlitzNotes</h3>
+          <p>Notes App that allows users to add, edit, delete, and categorize personal notes, Uses CRUD.</p>
+        </div>
+        <div class="flip-card-back">
+          <img src="./assets/images/bricksmove.webp" alt="Pixelo" class="project-image">
+          <p>Technologies used: C#, Typescript, React, AzureSql</p>
+          <a href="https://github.com/project3" class="project-link">View Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://github.com/ailynux?tab=repositories" class="see-more">
+    <i class="fab fa-github"></i> <p> See More Projects</p>
+  </a>
+</section>
+
+
+  
+<!-- Case Studies Section -->
+<section class="testimonials" style="background-image: url('./assets/images/cpu_pic3.webp'); background-size: cover; background-position: center; padding: 40px 20px;">
+  <h2 data-text="Project Highlights">Project Highlights</h2>
+
+  <div class="testimonial-card">
+    <p>"SilverBass is a Weekly Music Playlist app built with Python, YAML, and Docker, deployed on GitHub Pages with CI/CD using GitHub Actions." <span class="fish">🐟</span></p>
+    <h4><a href="https://github.com/marketplace/actions/silverbass-music-playlist-generator" class="cool-link" target="_blank">— SilverBass on GitHub Marketplace</a></h4>
+    <div class="badge-container">
+      <img src="https://img.shields.io/badge/GitHub-SilverBass-blue?logo=github" alt="GitHub Badge">
+    </div>
+  </div>
+
+  <div class="testimonial-card">
+    <p>"Pixelo is a minimalist web app built using the JAM stack, generating abstract and pixelated art with a lightweight algorithm focused on minimal file size." <span class="art">🎨</span></p>
+    <h4><a href="https://github.com/ailynux/Pixelo" class="cool-link" target="_blank">— Pixelo Project</a></h4>
+    <div class="badge-container">
+      <img src="https://img.shields.io/badge/GitHub-Pixelo-blue?logo=github" alt="GitHub Badge">
+    </div>
+  </div>
+</section>
+
+
+      
+ <!-- CONNECT SECTION (Dynamic hover effect with more animations) -->
+<section class="connect">
+  <h2>Stay in Touch</h2>
+  <div class="contact-box">
+    <p>I'd love to hear from you! Whether it's for collaboration, networking, or work, reach out below.</p>
+    <a class="cta" href="https://www.linkedin.com/in/ailyndiaz01" target="_blank" rel="noopener noreferrer" aria-label="Connect with Ailyn on LinkedIn">
+      <span>Lets connect</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+    <!-- Social Icons -->
+    <div class="socials">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/ailyndiaz01" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/ailynux" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <!-- StackOverflow -->
+      <a href="https://stackoverflow.com/users/19919729/ailyn-diaz" target="_blank" rel="noopener noreferrer" aria-label="StackOverflow">
+        <i class="fab fa-stack-overflow"></i>
+      </a>
+      <!-- Exercism -->
+      <a href="https://exercism.org/profiles/ailynux" target="_blank" rel="noopener noreferrer" aria-label="Exercism">
+        <i class="fas fa-dumbbell"></i> <!-- Placeholder icon for Exercism -->
+      </a>
+      <!-- LeetCode -->
+      <a href="https://leetcode.com/u/ailynux/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+        <i class="fas fa-code"></i> <!-- Placeholder icon for LeetCode -->
+      </a>
+    </div>
+  
+    <!-- Year and Creator Info -->
+    <div class="footer-creator">
+      <span>&#169; <span class="year">2024</span> | Programmed with care <span class="creator-name">Ailyn Diaz</span></span>
+    </div>
+
+    <!-- Footer Text -->
+    <p>STOP BY AGAIN</p>
+  </div>
+</footer>
+
+
+
+
+  </div>
+
+  <!-- Add the dynamic JavaScript and bubble effect here -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/terminal.js"></script>
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </body>
 </html>
