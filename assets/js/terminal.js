@@ -140,16 +140,40 @@ terminalInput.addEventListener('keydown', function (event) {
     }
 });
 
+// Get the input wrapper
+const inputWrapper = terminalInput.parentElement;
+
+// Function to update cursor visibility
+function updateCursor() {
+    const isFocused = document.activeElement === terminalInput;
+    const isEmpty = terminalInput.value === '';
+    
+    // Only show cursor when focused AND empty
+    if (isFocused && isEmpty) {
+        inputWrapper.classList.add('show-cursor');
+    } else {
+        inputWrapper.classList.remove('show-cursor');
+    }
+}
+
 // Blinking cursor control
 terminalInput.addEventListener('focus', () => {
-    terminalInput.classList.add('typing'); // Stops blinking cursor
+    updateCursor();
+});
+
+terminalInput.addEventListener('blur', () => {
+    // Always hide cursor when not focused
+    inputWrapper.classList.remove('show-cursor');
+});
+
+terminalInput.addEventListener('input', () => {
+    updateCursor();
 });
 
 terminalInput.addEventListener('keydown', () => {
-    terminalInput.classList.add('typing'); // Stop blinking when typing
+    // Hide cursor when any key is pressed
+    inputWrapper.classList.remove('show-cursor');
 });
 
-// Optionally, reset blinking when input loses focus
-terminalInput.addEventListener('blur', () => {
-    terminalInput.classList.remove('typing'); // Resume blinking when focus is lost
-});
+// Initialize - make sure cursor is hidden on page load
+updateCursor();

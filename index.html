@@ -16,6 +16,24 @@
 
    <!-- HEADER SECTION -->
 <header>
+  <!-- Animated Background Effects -->
+  <div class="header-bg-animation">
+    <div class="grid-lines"></div>
+    <div class="floating-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="scan-line"></div>
+  </div>
+  
   <h1 class="main-title">
     <span class="typed-text"></span>
   </h1>
@@ -50,8 +68,26 @@
       <div class="profile-wrapper">
         <div class="profile-card" style="background-image: url('./assets/images/back.webp');">
           <img src="./assets/images/photo.jpg" alt="Profile Picture" class="profile-pic">
-          <h2>Ailyn Diaz</h2>
-          <h3>Software Engineer</h3>
+          <div class="name-container">
+            <h2 class="name-text">
+              <span class="name-letter" data-letter="A">A</span>
+              <span class="name-letter" data-letter="i">i</span>
+              <span class="name-letter" data-letter="l">l</span>
+              <span class="name-letter" data-letter="y">y</span>
+              <span class="name-letter" data-letter="n">n</span>
+              <span class="name-space"></span>
+              <span class="name-letter" data-letter="D">D</span>
+              <span class="name-letter" data-letter="i">i</span>
+              <span class="name-letter" data-letter="a">a</span>
+              <span class="name-letter" data-letter="z">z</span>
+            </h2>
+          </div>
+          <div class="title-container">
+            <h3 class="title-text">
+              <span class="title-word" data-word="Software">Software</span>
+              <span class="title-word" data-word="Engineer">Engineer</span>
+            </h3>
+          </div>
         </div>
     
         <!-- Single Advanced Fake Terminal -->
@@ -72,99 +108,398 @@
             </div>
             <div class="input-area">
                 <span class="terminal-prompt"> hi@user:$</span>
-                <input type="text" id="terminal-input" placeholder="Type here..." autofocus />
+                <div class="input-wrapper">
+                    <input type="text" id="terminal-input" placeholder="Type here..." autofocus />
+                </div>
             </div>
         </div>
     </div>
     
-        
+</section>
 
+  <!-- SKILLS SECTION (Dynamic skills scroll) - Moved outside stats-box -->
+  <section class="skills-banner">
+    <div id="skills">
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/csharp.svg" alt="C#" class="skill-badge"> C#
+      </span> 
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/dotnet.svg" alt=".NET" class="skill-badge"> .NET
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg" alt="React" class="skill-badge"> React
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/typescript.svg" alt="TypeScript" class="skill-badge"> TypeScript
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/apache.svg" alt="LAMP" class="skill-badge"> LAMP
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linux.svg" alt="Linux" class="skill-badge"> Linux
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/microsoftazure.svg" alt="Azure" class="skill-badge"> Azure
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/gnubash.svg" alt="Bash" class="skill-badge"> BASH
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="skill-badge"> Git
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="skill-badge"> Python
+      </span>
+      <!-- Duplicate for seamless loop -->
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/csharp.svg" alt="C#" class="skill-badge"> C#
+      </span> 
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/dotnet.svg" alt=".NET" class="skill-badge"> .NET
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg" alt="React" class="skill-badge"> React
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/typescript.svg" alt="TypeScript" class="skill-badge"> TypeScript
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/apache.svg" alt="LAMP" class="skill-badge"> LAMP
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linux.svg" alt="Linux" class="skill-badge"> Linux
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/microsoftazure.svg" alt="Azure" class="skill-badge"> Azure
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/gnubash.svg" alt="Bash" class="skill-badge"> BASH
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="skill-badge"> Git
+      </span>
+      <span class="separator"></span>
+      <span class="skill-item">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="skill-badge"> Python
+      </span>
+    </div>
+  </section>
 
+  <!-- PERSONAL STATS BOX -->
+<section class="stats-section">
+  <div class="stats-container">
+    <div class="stat-card stat-1" data-stat="experience">
+      <div class="stat-glow-effect"></div>
+      <div class="stat-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-code"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number" id="years-exp">0</div>
+        <div class="stat-label">Years Engineering</div>
+        <div class="stat-subtitle">Building since 2021</div>
+      </div>
+      <div class="stat-decoration"></div>
+    </div>
 
+    <div class="stat-card stat-2" data-stat="projects">
+      <div class="stat-glow-effect"></div>
+      <div class="stat-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Projects Delivered</div>
+        <div class="stat-subtitle">Production-ready solutions</div>
+      </div>
+      <div class="stat-decoration"></div>
+    </div>
 
-  <!-- PERSONAL STATS BOX (Dynamic inside profile card) -->
-<div class="stats-box">
-   <!-- SKILLS SECTION (Dynamic skills scroll) -->
- <section class="skills-banner">
-  <div id="skills">
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/csharp.svg" alt="C#" class="skill-badge"> C#
-    </span> 
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/dotnet.svg" alt=".NET" class="skill-badge"> .NET
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg" alt="React" class="skill-badge"> React
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/typescript.svg" alt="TypeScript" class="skill-badge"> TypeScript
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/apache.svg" alt="LAMP" class="skill-badge"> LAMP
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linux.svg" alt="Linux" class="skill-badge"> Linux
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/microsoftazure.svg" alt="Azure" class="skill-badge"> Azure
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/gnubash.svg" alt="Bash" class="skill-badge"> BASH
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="skill-badge"> Git
-    </span>
-    <span class="separator"></span>
-    <span class="skill-item">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="skill-badge"> Python
-    </span>
+    <div class="stat-card stat-3" data-stat="education">
+      <div class="stat-glow-effect"></div>
+      <div class="stat-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number">4.0</div>
+        <div class="stat-label">Perfect GPA</div>
+        <div class="stat-subtitle">A.Sc.CIS • 5 Certifications • 2024</div>
+      </div>
+      <div class="stat-decoration"></div>
+    </div>
+
+    <div class="stat-card stat-4 highlight-card" data-stat="awards">
+      <div class="stat-glow-effect"></div>
+      <div class="stat-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-badge">Outstanding CIS Student 2023</div>
+        <div class="stat-label">Award Recipient</div>
+        <div class="stat-subtitle">+ Cru Team Leader Award 2025</div>
+      </div>
+      <div class="stat-decoration"></div>
+    </div>
+
+    <div class="stat-card stat-5" data-stat="expertise">
+      <div class="stat-glow-effect"></div>
+      <div class="stat-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-layer-group"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number">Full</div>
+        <div class="stat-label">Stack Engineer</div>
+        <div class="stat-subtitle">End-to-end architecture</div>
+      </div>
+      <div class="stat-decoration"></div>
+    </div>
+
+    <div class="stat-card stat-6" data-stat="languages">
+      <div class="stat-glow-effect"></div>
+      <div class="stat-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-globe"></i>
+      </div>
+      <div class="stat-content">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Languages</div>
+        <div class="stat-subtitle">English • Spanish</div>
+      </div>
+      <div class="stat-decoration"></div>
+    </div>
   </div>
 </section>
-    <div class="stat-item">
-        <i class="fas fa-briefcase"></i>
-        <h3>1.5+</h3>
-        <p>Years of Experience</p>
+
+<!-- HIGHLIGHTS SECTION -->
+<section class="highlights-section">
+  <h2 class="section-title">Core Strengths</h2>
+  <div class="highlights-grid">
+    <div class="highlight-item skill-1">
+      <div class="skill-icon-bg"></div>
+      <i class="fas fa-layer-group"></i>
+      <h3>Full-Stack Development</h3>
+      <p>End-to-end application development from frontend to backend</p>
+      <div class="skill-particles"></div>
+    </div>
+    <div class="highlight-item skill-2">
+      <div class="skill-icon-bg"></div>
+      <i class="fab fa-microsoft"></i>
+      <h3>C# / .NET</h3>
+      <p>Enterprise-grade backend development and API design</p>
+      <div class="skill-particles"></div>
+    </div>
+    <div class="highlight-item skill-3">
+      <div class="skill-icon-bg"></div>
+      <i class="fab fa-react"></i>
+      <h3>React / TypeScript</h3>
+      <p>Modern frontend development with type safety</p>
+      <div class="skill-particles"></div>
+    </div>
+    <div class="highlight-item skill-4">
+      <div class="skill-icon-bg"></div>
+      <i class="fas fa-database"></i>
+      <h3>SQL & Database Design</h3>
+      <p>Efficient data modeling and query optimization</p>
+      <div class="skill-particles"></div>
+    </div>
+    <div class="highlight-item skill-5">
+      <div class="skill-icon-bg"></div>
+      <i class="fab fa-microsoft"></i>
+      <h3>Microsoft Azure</h3>
+      <p>Cloud infrastructure and deployment expertise</p>
+      <div class="skill-particles"></div>
+    </div>
+    <div class="highlight-item skill-6">
+      <div class="skill-icon-bg"></div>
+      <i class="fas fa-comments"></i>
+      <h3>Communications & Services</h3>
+      <p>Real-time systems and service architecture</p>
+      <div class="skill-particles"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE SECTION -->
+<section class="timeline-section">
+  <h2 class="section-title">Journey</h2>
+  <div class="journey-container">
+    <div class="timeline-line"></div>
+    <div class="timeline">
+      <div class="timeline-item milestone-1" data-year="2021">
+        <div class="timeline-marker">
+          <div class="marker-pulse"></div>
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">2021</div>
+          <h4>Started Coding</h4>
+          <p>Began my journey into software development, exploring various technologies and building foundational skills.</p>
+          <div class="timeline-glow"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item milestone-2" data-year="2022-2023">
+        <div class="timeline-marker">
+          <div class="marker-pulse"></div>
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">2022-2023</div>
+          <h4>Education & Growth</h4>
+          <p>Pursued Associate's degree in Computer Information Systems while working full-time, earning multiple certifications in frameworks, full-stack development, C#, and cybersecurity.</p>
+          <div class="timeline-glow"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item milestone-3" data-year="2023">
+        <div class="timeline-marker">
+          <div class="marker-pulse"></div>
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">2023</div>
+          <h4>Network Infrastructure</h4>
+          <p>Worked on Wi-Fi systems for banks, schools, and businesses, contributing to fiber network infrastructure design across Colorado.</p>
+          <div class="timeline-glow"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item milestone-4" data-year="2024">
+        <div class="timeline-marker">
+          <div class="marker-pulse"></div>
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <h4>Graduated</h4>
+          <p>Earned Associate's degree in Computer Information Systems with 4.0 GPA and 5 certifications.</p>
+          <div class="timeline-glow"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item milestone-5 highlight" data-year="2024-Present">
+        <div class="timeline-marker">
+          <div class="marker-pulse"></div>
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">2024-Present</div>
+          <h4>Software Engineer at UnionHub</h4>
+          <p>Full-stack development focusing on member self-access, communications, and user experience improvements. Building systems that make a real impact.</p>
+          <div class="timeline-glow"></div>
+        </div>
+      </div>
+
+      <div class="timeline-item milestone-6" data-year="2025">
+        <div class="timeline-marker">
+          <div class="marker-pulse"></div>
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-year">2025</div>
+          <h4>Cru Team Leader Award</h4>
+          <p>Recognized for incredible growth, consistency, and attention to detail. Nominated and voted by teammates for outstanding contributions.</p>
+          <div class="timeline-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS & PRESS SECTION -->
+<section class="awards-section">
+  <!-- Animated Background -->
+  <div class="awards-bg-animation">
+    <div class="awards-grid-bg"></div>
+    <div class="awards-particles">
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+      <div class="award-particle"></div>
+    </div>
+    <div class="awards-scan-lines"></div>
+    <div class="awards-glow-orb orb-1"></div>
+    <div class="awards-glow-orb orb-2"></div>
+    <div class="awards-glow-orb orb-3"></div>
+  </div>
+  
+  <h2 class="section-title awards-title">Awards & Recognition</h2>
+  
+  <div class="awards-grid">
+    <div class="award-card award-1">
+      <div class="award-glow"></div>
+      <div class="award-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-trophy"></i>
+      </div>
+      <div class="award-content">
+        <div class="award-badge">2025</div>
+        <h3>Cru Team Leader Award Winner</h3>
+        <p>Recognized for incredible growth, consistency, and attention to detail. Nominated and voted by teammates for outstanding contributions to the team.</p>
+      </div>
+      <div class="award-decoration"></div>
     </div>
 
-    <div class="stat-item">
-        <i class="fas fa-project-diagram"></i>
-        <h3>30+</h3>
-        <p>Completed Projects</p>
+    <div class="award-card award-2">
+      <div class="award-glow"></div>
+      <div class="award-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-medal"></i>
+      </div>
+      <div class="award-content">
+        <div class="award-badge">2023</div>
+        <h3>Outstanding CIS Student</h3>
+        <p>Recognized as the outstanding Computer Information Systems student for exceptional academic performance and dedication to the field.</p>
+      </div>
+      <div class="award-decoration"></div>
     </div>
 
-    <div class="stat-item">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>A.Sc.CIS + 5 CERTS</h3>
-        <h3>4.0 GPA</h3>
-        <p>Education</p>
+    <div class="press-card press-feature">
+      <div class="press-glow"></div>
+      <div class="press-icon-wrapper">
+        <div class="icon-ring"></div>
+        <i class="fas fa-newspaper"></i>
+      </div>
+      <div class="press-content">
+        <div class="press-badge">Featured</div>
+        <h3>A Day in the Life at UnionHub: Meet Ailyn Diaz</h3>
+        <p class="press-date">January 20, 2026</p>
+        <p>Featured in UnionHub's company spotlight, sharing my journey from crane operator to full-stack engineer, and the passion for problem-solving that drives my work.</p>
+        <a href="https://unionhub.com/stories/meet-ailyn-diaz/" target="_blank" class="press-link" rel="noopener noreferrer">
+          <span>Read Article</span>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+      <div class="press-decoration"></div>
     </div>
-
-    <div class="stat-item">
-        <i class="fas fa-award"></i>
-        <h3>Outstanding CIS Std. 2023</h3>
-        <p>Awards</p>
-    </div>
-
-    <div class="stat-item">
-        <i class="fas fa-cogs"></i>
-        <h3>Full Stack Developer</h3>
-        <p>Expertise</p>
-    </div>
-
-    <div class="stat-item">
-        <i class="fas fa-language"></i>
-        <h3>English, Spanish</h3>
-        <p>Languages</p>
-    </div>
-</div>
+  </div>
+</section>
 
 <!-- CTA SECTION BOXES -->
 <section class="cta-section">
@@ -331,7 +666,7 @@
   
     <!-- Year and Creator Info -->
     <div class="footer-creator">
-      <span>&#169; <span class="year">2024</span> | Programmed with care <span class="creator-name">Ailyn Diaz</span></span>
+      <span>&#169; <span class="year" id="footer-year">2024</span> | Programmed with care <span class="creator-name">Ailyn Diaz</span></span>
     </div>
 
     <!-- Footer Text -->
@@ -347,6 +682,26 @@
   <!-- Add the dynamic JavaScript and bubble effect here -->
   <script src="./assets/js/script.js"></script>
   <script src="./assets/js/terminal.js"></script>
+  <!-- Auto-calculate years of experience and footer year -->
+  <script>
+    (function() {
+      const currentYear = new Date().getFullYear();
+      const startYear = 2021;
+      const yearsOfExperience = currentYear - startYear;
+      
+      // Update years of experience
+      const experienceStat = document.getElementById('years-exp');
+      if (experienceStat) {
+        experienceStat.textContent = yearsOfExperience + '+';
+      }
+      
+      // Update footer year
+      const footerYear = document.getElementById('footer-year');
+      if (footerYear) {
+        footerYear.textContent = currentYear;
+      }
+    })();
+  </script>
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </body>
